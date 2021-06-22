@@ -4,4 +4,14 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Model.Name
+<h1>@Model.Name</h1>
+<ul>
+    <li>MemberShip Type :@Model.MembershipType.Name</li>
+
+    @if (Model.BirthDay != null)
+    {
+        <li>
+            @Model.BirthDay
+        </li>
+    }
+    </ul>

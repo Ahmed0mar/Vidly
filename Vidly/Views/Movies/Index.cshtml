@@ -4,22 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<table class="table table-bordered table-hover">
-    <tr class=""><h3 class="alert alert-info">Movies</h3></tr>
-
-    @if (!Model.Any())
-    {
-        <p class="alert">There is no movies.</p>
-    }
-    else
-    {
-        foreach (var m in Model)
-        {
+<h1 class="alert-heading">Movies</h1>
+@if (!Model.Any())
+{
+    <p>Sorry there is no movies in the library yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
             <tr>
-                <td class="list-group-item">@m.Name</td>
+                <th>Movie</th>
+                <th>Genre</th>
             </tr>
-        }
-    }
-</table>
-
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+                    <td>@movie.Genre.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

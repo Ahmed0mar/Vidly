@@ -4,12 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using System.Data.Entity;
 using Vidly.Models.ViewModels;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+
+        private VidlyDBContext _context= new VidlyDBContext();
+        public MoviesController()
+        {
+            _context = new VidlyDBContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ActionResult Random()
         {
             Movie movie;
@@ -41,12 +54,8 @@ namespace Vidly.Controllers
         //movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
-            IList<Movie> movies = new List<Movie>()
-            {
-                new Movie() {Name = "Wall-E"},
-                new Movie() {Name = "Shrek"}
-            };
 
+          var movies=  _context.Movies.Include(m => m.Genre).ToList();
 
 
             return View(movies);
@@ -64,6 +73,13 @@ namespace Vidly.Controllers
         {
 
             return Content(year + "/");
+        }
+        public ActionResult Details(int id) {
+
+
+            Movie movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
+
+            return View(movie);
         }
     }
 }

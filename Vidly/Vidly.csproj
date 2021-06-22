@@ -133,9 +133,56 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106202123063_InitialModel.cs" />
+    <Compile Include="Migrations\202106202123063_InitialModel.designer.cs">
+      <DependentUpon>202106202123063_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106211836075_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202106211836075_PopulateMembershipTypes.designer.cs">
+      <DependentUpon>202106211836075_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106211945351_ApplyAnnotationToCustomerNeed.cs" />
+    <Compile Include="Migrations\202106211945351_ApplyAnnotationToCustomerNeed.designer.cs">
+      <DependentUpon>202106211945351_ApplyAnnotationToCustomerNeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212005120_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202106212005120_AddNameToMembershipType.designer.cs">
+      <DependentUpon>202106212005120_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212007234_updateMembershiptTypeData.cs" />
+    <Compile Include="Migrations\202106212007234_updateMembershiptTypeData.designer.cs">
+      <DependentUpon>202106212007234_updateMembershiptTypeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212011527_AddAnnotationsToNameInMembershipTypeTable.cs" />
+    <Compile Include="Migrations\202106212011527_AddAnnotationsToNameInMembershipTypeTable.designer.cs">
+      <DependentUpon>202106212011527_AddAnnotationsToNameInMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212015175_Add BirthdayToCustomers.cs" />
+    <Compile Include="Migrations\202106212015175_Add BirthdayToCustomers.designer.cs">
+      <DependentUpon>202106212015175_Add BirthdayToCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212026130_AddNullableToBirthDay.cs" />
+    <Compile Include="Migrations\202106212026130_AddNullableToBirthDay.designer.cs">
+      <DependentUpon>202106212026130_AddNullableToBirthDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212037349_AddGenreTableEditCustomerTable.cs" />
+    <Compile Include="Migrations\202106212037349_AddGenreTableEditCustomerTable.designer.cs">
+      <DependentUpon>202106212037349_AddGenreTableEditCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212038402_InsertIntoGenre.cs" />
+    <Compile Include="Migrations\202106212038402_InsertIntoGenre.designer.cs">
+      <DependentUpon>202106212038402_InsertIntoGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106212059380_Initial.cs" />
+    <Compile Include="Migrations\202106212059380_Initial.designer.cs">
+      <DependentUpon>202106212059380_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\VidlyDBContext.cs" />
     <Compile Include="Models\ViewModels\RandomMovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,7 +244,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -216,6 +265,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,6 +276,41 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106202123063_InitialModel.resx">
+      <DependentUpon>202106202123063_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106211836075_PopulateMembershipTypes.resx">
+      <DependentUpon>202106211836075_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106211945351_ApplyAnnotationToCustomerNeed.resx">
+      <DependentUpon>202106211945351_ApplyAnnotationToCustomerNeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212005120_AddNameToMembershipType.resx">
+      <DependentUpon>202106212005120_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212007234_updateMembershiptTypeData.resx">
+      <DependentUpon>202106212007234_updateMembershiptTypeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212011527_AddAnnotationsToNameInMembershipTypeTable.resx">
+      <DependentUpon>202106212011527_AddAnnotationsToNameInMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212015175_Add BirthdayToCustomers.resx">
+      <DependentUpon>202106212015175_Add BirthdayToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212026130_AddNullableToBirthDay.resx">
+      <DependentUpon>202106212026130_AddNullableToBirthDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212037349_AddGenreTableEditCustomerTable.resx">
+      <DependentUpon>202106212037349_AddGenreTableEditCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212038402_InsertIntoGenre.resx">
+      <DependentUpon>202106212038402_InsertIntoGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106212059380_Initial.resx">
+      <DependentUpon>202106212059380_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
