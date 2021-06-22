@@ -177,6 +177,14 @@
     <Compile Include="Migrations\202106212059380_Initial.designer.cs">
       <DependentUpon>202106212059380_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106221353109_test.cs" />
+    <Compile Include="Migrations\202106221353109_test.designer.cs">
+      <DependentUpon>202106221353109_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106221359140_MakeBithDayNullable.cs" />
+    <Compile Include="Migrations\202106221359140_MakeBithDayNullable.designer.cs">
+      <DependentUpon>202106221359140_MakeBithDayNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -310,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106212059380_Initial.resx">
       <DependentUpon>202106212059380_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106221353109_test.resx">
+      <DependentUpon>202106221353109_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106221359140_MakeBithDayNullable.resx">
+      <DependentUpon>202106221359140_MakeBithDayNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

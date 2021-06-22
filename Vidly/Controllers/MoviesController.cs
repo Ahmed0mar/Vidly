@@ -61,6 +61,15 @@ namespace Vidly.Controllers
             return View(movies);
         }
 
+        public ActionResult Details(int id)
+        {
+
+
+            Movie movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
+
+            return View(movie);
+        }
+
         [Route("Movies/released/{year:regex(\\d{4})}/{month:range(1,12)}")]
 
 
@@ -74,12 +83,6 @@ namespace Vidly.Controllers
 
             return Content(year + "/");
         }
-        public ActionResult Details(int id) {
-
-
-            Movie movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
-
-            return View(movie);
-        }
+       
     }
 }
